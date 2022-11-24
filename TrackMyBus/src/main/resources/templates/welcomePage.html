@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Track My Bus</title>
+    <style>
+        .navbar {
+            background-color: #a9f558;
+        }
+
+        .jumb1 {
+            background-image: url("assets/img/login1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .jumb2 {
+            background-color: #a9f558;
+        }
+
+        .col-md-6 {
+            height: 210px;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="height: 80px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="welcomePage"><img src="assets/img/logo.png" alt="logo.." width="105px"
+                    height="auto"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="welcomePage">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="welcomePage" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Track My Bus
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="welcomePage">Search By Stop Number</a></li>
+                            <li><a class="dropdown-item" href="welcomePage">Search By Route</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="timetables">Timetables</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">Contact Us</a>
+                    </li>
+                </ul>
+                <button class="btn" type="submit"><a href="userProfile"><img
+                            src="assets/img/profileIcon.png"></a></button>
+                <div class="mx-2">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" class="btn btn-success" value="Logout" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Header carousel section -->
+    <div class="jumbotron jumb1 p-4 p-md-5 text-white rounded">
+        <div class="col-md-6 px-0">
+            <h2>Wecome to TrackMyBus Jyoti!</h2>
+            <!-- <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p> -->
+            <!-- <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p> -->
+        </div>
+    </div>
+
+    <!-- Features section -->
+    <div class="col-md-12 text-center btn-group">
+        <a href="welcomePage" class="btn btn-success btn-lg active" aria-current="page">Real time information</a>
+        <a href="timetables" class="btn btn-success btn-lg">Timetables</a>
+    </div>
+
+    <div class="jumbotron jumb2 p-md-3 rounded">
+        <div class="jumb3 px-0">
+            <h5>Real Time Information</h5>
+            <hr>
+            <!-- <p>Welcome to our Real Time Information Service</p> -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Search by bus stop number</h6>
+                            <!-- <input class="form-control me-2" type="search" placeholder="Enter your stop number"
+                                aria-label="Search"> -->
+                            <div class="input-group">
+                                <input type="search" class="form-control" placeholder="Enter your stop number"
+                                    aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                    <!-- <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <div role="separator" class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Separated link</a>
+                                      </div> -->
+                                </div>
+                            </div>
+                            <a href="trackView" class="btn btn-success mt-2" type="submit">Search</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Search by route</h6>
+                            <!-- <input class="form-control me-2" type="search" placeholder="Enter your route"
+                                aria-label="Search"> -->
+                            <div class="input-group">
+                                <input type="search" class="form-control" placeholder="Enter your route"
+                                    aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                    <!-- <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div role="separator" class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                          </div> -->
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-success mt-2" type="submit">Search</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>© 2017–2022 TrackMYbus, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
